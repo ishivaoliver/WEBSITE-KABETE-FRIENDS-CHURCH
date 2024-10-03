@@ -109,7 +109,7 @@ h1 {
 .hero {
     position: relative;
     height: 100vh;
-    background-image: url('/Assets/background\ image\ 2.jpg');
+    background-image: url('/Assets/background-image-2.jpg');
     /* Add your image here */
     background-size: cover;
     background-position: center;
