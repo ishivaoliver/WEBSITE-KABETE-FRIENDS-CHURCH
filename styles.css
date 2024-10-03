@@ -1,0 +1,974 @@
+/* General Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0e0d0d;
+    text-align: center;
+    margin: 20px 0;
+}
+
+
+/* Navbar */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: transparent;
+    /* Transparent background */
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    width: 300px;
+    height: 100px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.navbar ul li a:hover {
+    color: #ffcc00;
+}
+
+
+/* Menu Toggle (For Mobile) */
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        /* Show toggle button on mobile */
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    .nav-links.show-menu {
+        display: flex;
+        /* Show menu when toggle is clicked */
+    }
+    .navbar ul li {
+        margin: 10px 0;
+    }
+}
+
+
+/* Hero Section */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('/Assets/background\ image\ 2.jpg');
+    /* Add your image here */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding: 20px;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    /* Increased font size */
+    margin-bottom: 1rem;
+    font-weight: bold;
+    /* Bold text */
+    color: black;
+    /* Black text */
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideIn 1s forwards;
+}
+
+.hero-text {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideIn 1.5s forwards;
+}
+
+.hero .btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideIn 2s forwards;
+}
+
+.hero .btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Animation */
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    .navbar ul li {
+        margin: 10px 0;
+    }
+    .hero-title {
+        font-size: 3rem;
+        /* Adjusted font size for smaller screens */
+    }
+    .hero-text {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* Section Styling */
+
+section {
+    padding: 50px 0;
+}
+
+
+/* About Section Styling */
+
+.about-section {
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    color: white;
+    text-align: left;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Darken background for better text readability */
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.8;
+    font-weight: 600;
+}
+
+
+/* General Styles for Services Section */
+
+.services-section {
+    padding: 60px 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+
+/* Slider Styles */
+
+.services-slider {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    position: relative;
+}
+
+.slide.active {
+    display: block;
+    animation: fade-in 1s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.service-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.service-info h3 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.service-info p {
+    font-size: 1.2rem;
+    margin: 5px 0 0;
+}
+
+
+/* Slider Controls */
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 20px;
+}
+
+.slider-controls span {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.slider-controls span:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+
+/* Fade-in Animation */
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Responsive Adjustments */
+
+@media (max-width: 768px) {
+    .services-section h2 {
+        font-size: 2.5rem;
+    }
+    .slide img {
+        height: 300px;
+    }
+    .service-info h3 {
+        font-size: 1.5rem;
+    }
+    .service-info p {
+        font-size: 1rem;
+    }
+}
+
+
+/* General Styles for Events Section */
+
+.events-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.events-section h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+
+/* Grid Layout for Event Cards */
+
+.events-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+
+/* Event Card Design */
+
+.event-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.event-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 20px;
+}
+
+.event-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.event-info p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+
+/* Fade-in Animation */
+
+.event-card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.event-card.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+    .events-section h2 {
+        font-size: 2.5rem;
+    }
+    .event-info h3 {
+        font-size: 1.3rem;
+    }
+    .event-info p {
+        font-size: 1rem;
+    }
+}
+
+
+/* Grid Section */
+
+.grid-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.grid-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.grid-card h2 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.grid-card .btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #00b4d8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+
+/* Impact and Donation Sections */
+
+.impact-section,
+.donations-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #f4f4f4;
+}
+
+.impact-section img,
+.donations-section img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.content {
+    max-width: 50%;
+    padding: 20px;
+}
+
+.content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.content .btn {
+    padding: 10px 20px;
+    background-color: #00b4d8;
+    color: white;
+    border-radius: 5px;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    .navbar ul li {
+        margin: 10px 0;
+    }
+    .impact-section,
+    .donations-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .impact-section img,
+    .donations-section img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .content {
+        max-width: 100%;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* Login Section Styles */
+
+.login-section {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.login-section h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.login-section input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.login-section input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.login-section .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-section .btn:hover {
+    background-color: #0056b3;
+}
+
+.login-section p {
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+}
+
+.login-section a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-section a:hover {
+    text-decoration: underline;
+}
+
+
+/* Footer Styling */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #007bff;
+    color: white;
+}
+
+footer .footer-col {
+    width: 23%;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #ffcc00;
+}
+
+footer .social-icons {
+    display: flex;
+}
+
+footer .social-icons a {
+    margin-right: 10px;
+}
+
+footer .social-icons img {
+    width: 24px;
+}
+
+
+/* Responsive Footer */
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    footer .footer-col {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Section Styling */
+
+section {
+    padding: 50px 0;
+}
+
+.about-section,
+.services-section,
+.events-section {
+    text-align: center;
+    background-color: #fff;
+}
+
+
+/* Grid Section */
+
+.grid-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.grid-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.grid-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.grid-card h2 {
+    margin: 10px 0;
+    color: #333;
+}
+
+.grid-card .btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #00b4d8;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+
+/* Impact and Donation Sections */
+
+.impact-section,
+.donations-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #f4f4f4;
+}
+
+.impact-section img,
+.donations-section img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.content {
+    max-width: 50%;
+    padding: 20px;
+}
+
+.content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.content .btn {
+    padding: 10px 20px;
+    background-color: #00b4d8;
+    color: white;
+    border-radius: 5px;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    .navbar ul li {
+        margin: 10px 0;
+    }
+    .impact-section,
+    .donations-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .impact-section img,
+    .donations-section img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .content {
+        max-width: 100%;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* Login Section Styles */
+
+.login-section {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.login-section h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.login-section input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.login-section input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.login-section .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-section .btn:hover {
+    background-color: #0056b3;
+}
+
+.login-section p {
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+}
+
+.login-section a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-section a:hover {
+    text-decoration: underline;
+}
+
+
+/* Footer Styling */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #007bff;
+    color: white;
+}
+
+footer .footer-col {
+    width: 23%;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #ffcc00;
+}
+
+footer .social-icons {
+    display: flex;
+}
+
+footer .social-icons a {
+    margin-right: 10px;
+}
+
+footer .social-icons img {
+    width: 24px;
+}
+
+
+/* Responsive Footer */
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    footer .footer-col {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+ooter .social-icons a {
+    margin-right: 10px;
+}
+
+footer .social-icons img {
+    width: 24px;
+}
+
+
+/* Responsive Footer */
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    footer .footer-col {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
